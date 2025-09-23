@@ -1,25 +1,107 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import NavBar from "./components/NavBar";
+import News from "./components/News";
+import React, { Component } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+        <Router>
+          <NavBar />
+          <Routes>
+            <Route
+              path="/home"
+              element={
+                <News
+                  key="general"
+                  pageSize={20}
+                  country="us"
+                  category="general"
+                />
+              }
+            />
+            <Route
+              path="/business"
+              element={
+                <News
+                  key="business"
+                  pageSize={8}
+                  country="us"
+                  category="business"
+                />
+              }
+            />
+            <Route
+              path="/entertainment"
+              element={
+                <News
+                  key="entertainment"
+                  pageSize={8}
+                  country="us"
+                  category="entertainment"
+                />
+              }
+            />
+            <Route
+              path="/general"
+              element={
+                <News
+                  key="general"
+                  pageSize={8}
+                  country="us"
+                  category="general"
+                />
+              }
+            />
+            <Route
+              path="/health"
+              element={
+                <News
+                  key="health"
+                  pageSize={8}
+                  country="us"
+                  category="health"
+                />
+              }
+            />
+            <Route
+              path="/science"
+              element={
+                <News
+                  key="science"
+                  pageSize={8}
+                  country="us"
+                  category="science"
+                />
+              }
+            />
+            <Route
+              path="/sports"
+              element={
+                <News
+                  key="sports"
+                  pageSize={8}
+                  country="us"
+                  category="sports"
+                />
+              }
+            />
+            <Route
+              path="/technology"
+              element={
+                <News
+                  key="technology"
+                  pageSize={8}
+                  country="us"
+                  category="technology"
+                />
+              }
+            />
+          </Routes>
+        </Router>
+      </div>
+    );
+  }
 }
-
-export default App;
